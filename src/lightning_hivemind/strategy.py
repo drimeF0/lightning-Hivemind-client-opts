@@ -128,6 +128,7 @@ class HivemindStrategy(Strategy):
         averager_opts: Optional[Dict] = None,
         host_maddrs: Optional[List] = None,
         initial_peers: Optional[Union[str, List]] = None,
+        client_mode: bool = False,
         **optimizer_kwargs: Any,
     ):
         if platform.system() != "Linux":
@@ -165,6 +166,7 @@ class HivemindStrategy(Strategy):
             start=True,
             initial_peers=initial_peers,
             host_maddrs=host_maddrs if host_maddrs is not None else ["/ip4/0.0.0.0/tcp/0", "/ip4/0.0.0.0/udp/0/quic"],
+            client_mode=client_mode,
         )
 
         visible_addresses = [
